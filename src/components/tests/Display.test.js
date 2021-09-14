@@ -1,16 +1,25 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Display from './../Display';
+import userEvent from '@testing-library/user-event';
+
+test("Test that the Display component renders without any passed in props.", () => {
+    render(<Display/>)
+});
+
+test("Test that when the fetch button is pressed, the show component will display.", ()=>{
+    render(<Display/>)
+
+    const button = screen.getByRole('button')
+
+    const show = screen.queryByTestId(/show-container/i)
+
+    userEvent.click(button)
+
+    expect(show).toBeInTheDocument()
 
 
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 ///Tasks:
